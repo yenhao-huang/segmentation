@@ -1,9 +1,10 @@
-## **Carvana Image Masking Challenge**
+# **Carvana Image Masking Challenge**
+
 This project participates in the **Carvana Image Masking Challenge** hosted on Kaggle. The goal is to segment the car body from vehicle images.
 
 ---
 
-### **How to Run**
+## **How to Run**
 
 1. **Install dependencies**
 
@@ -35,26 +36,28 @@ This project participates in the **Carvana Image Masking Challenge** hosted on K
 
 ---
 
-### **Dataset**
+## **Dataset**
 
 * **Source**: Kaggle Carvana Image Masking Challenge
 * **Format**:
+
   * **Images**: RGB photos (1918×1280 pixels), each containing a full car.
   * **Labels**: Corresponding binary masks where each pixel is labeled as `1` (car) or `0` (background).
 * **Preprocess**:
+
   * **Train/Test Split**
   * **Resize to (512, 512)**
   * **Normalization**
 
 ---
 
-### **Model Architecture**
+## **Model Architecture**
 
-The project uses the classic **U-Net** architecture
+The project uses the classic **U-Net** architecture:
 
-| Item               | Value         |
+| Item              | Value     |
 | ----------------- | --------- |
-| **#Parameters**   | ~ 31M     |
+| **#Parameters**   | \~ 31M    |
 | **Optimizer**     | Adam      |
 | **Learning Rate** | 1e-4      |
 | **Loss Function** | Dice Loss |
@@ -63,22 +66,20 @@ The project uses the classic **U-Net** architecture
 
 ---
 
-#### **Loss Functions**
-
+### **Loss Functions**
 
 * **Dice Loss**:
 
   * Helps address class imbalance
   * Focuses learning on the object region (e.g., the car) instead of the background
-  
 
 ---
 
-### **Optimization**
+## **Optimization**
 
 * **Data Augmentation**: Horizontal flip, random crop, brightness adjustment, scaling
-* **Input Size**: Cropped to 1024x512 or similar based on GPU memory
-* **Optimizer**: Change Opitmizer
+* **Input Size**: Cropped to 1024×512 or similar based on GPU memory
+* **Optimizer**: Change Optimizer
 * **Learning Rate Schedule**: Cosine Annealing or ReduceLROnPlateau
 * **Training Techniques**:
 
@@ -88,11 +89,11 @@ The project uses the classic **U-Net** architecture
 
 ---
 
-### **Results**
+## **Results**
 
-| Model    | Mean IoU |
-| -------- | -------- |
+| Model                   | Mean IoU |
+| ----------------------- | -------- |
 | Unet (Without Training) | 0.20     |
-| Unet (With Training) | 0.99     |
+| Unet (With Training)    | 0.99     |
 
-**Note**: Time: ~25 hours on NVIDIA RTX 4090
+**Note**: Time: \~25 hours on NVIDIA RTX 4090

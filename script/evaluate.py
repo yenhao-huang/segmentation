@@ -44,7 +44,7 @@ def visualize_predictions(imgs, masks, preds, batch_idx, save_dir="preds"):
         ax[2].set_title("Prediction")
         ax[2].axis("off")
 
-        plt.tight_layout()
+        plt.tight_layout(rect=[0, 0, 1, 0.95])
         plt.savefig(os.path.join(save_dir, f"pred_{batch_idx}_{i}.png"))
         plt.close()
 
